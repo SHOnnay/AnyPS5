@@ -23,6 +23,7 @@ void DocumentDestroy(XmlHandle* document);
 int DocumentTerminate(XmlHandle* document);
 bool DocumentIsAvailable(const XmlHandle* document);
 int DocumentGetStatus(const XmlHandle* document);
+void DocumentResetStatus(const XmlHandle* document);
 bool DocumentIsReadOnly(const XmlHandle* document);
 
 enum class NodeQuery { Root, DocRoot, FirstChild, Sibling, Parent, LastChild, FirstAttribute, NextAttribute };
@@ -33,5 +34,8 @@ XmlNodeId* DocumentNode(XmlNodeId* result, const XmlHandle* document, NodeQuery 
 XmlString* DocumentString(XmlString* result, const XmlHandle* document, StringQuery query, XmlNodeId node);
 XmlString* DocumentAttribute(XmlString* result, const XmlHandle* document, XmlNodeId node, const XmlString* name);
 std::uint32_t DocumentNumber(const XmlHandle* document, NumberQuery query, XmlNodeId node);
+int DocumentChildNodes(const XmlHandle* document, XmlNodeId node, XmlHandle* list);
+int DocumentAttributes(const XmlHandle* document, XmlNodeId node, XmlHandle* list);
+int DocumentElementsByTagName(const XmlHandle* document, XmlNodeId node, const XmlString* name, XmlHandle* list);
 
 }
