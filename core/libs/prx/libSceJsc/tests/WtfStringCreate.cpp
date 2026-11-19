@@ -455,8 +455,9 @@ void TestToUIntStrict() {
     String zeros = Make8("00");
     Check(_ZNK3WTF6String12toUIntStrictEPbi(&zeros, &ok, 1) == 0 && ok, __LINE__);
     Check(_ZNK3WTF6String12toUIntStrictEPbi(&ten, &ok, 1) == 0 && !ok, __LINE__);
+    String zero = Make8("0");
     ok = true;
-    Check(_ZNK3WTF6String12toUIntStrictEPbi(&zeros, &ok, -1) == 0 && !ok, __LINE__);
+    Check(_ZNK3WTF6String12toUIntStrictEPbi(&zero, &ok, -1) == 0 && !ok, __LINE__);
     String blank = Make8(" ");
     Check(_ZNK3WTF6String12toUIntStrictEPbi(&blank, &ok, 10) == 0 && !ok, __LINE__);
     const String nullString;
