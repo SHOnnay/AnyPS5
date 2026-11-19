@@ -455,6 +455,8 @@ void TestToUIntStrict() {
     String zeros = Make8("00");
     Check(_ZNK3WTF6String12toUIntStrictEPbi(&zeros, &ok, 1) == 0 && ok, __LINE__);
     Check(_ZNK3WTF6String12toUIntStrictEPbi(&ten, &ok, 1) == 0 && !ok, __LINE__);
+    ok = true;
+    Check(_ZNK3WTF6String12toUIntStrictEPbi(&zeros, &ok, -1) == 0 && !ok, __LINE__);
     String zero = Make8("0");
     ok = true;
     Check(_ZNK3WTF6String12toUIntStrictEPbi(&zero, &ok, -1) == 0 && !ok, __LINE__);
